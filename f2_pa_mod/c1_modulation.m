@@ -29,7 +29,8 @@ addpath(functions_folder);
 %% Importing data
 % Path
 source_folder = fullfile(root_folder, 'f1_source_data');
-source_file = fullfile(source_folder, 'source_signal_1.mat')
+source_file = fullfile(source_folder, 'source_signal_1.mat');
+disp(['Data imported from: ', source_file]);
 
 % Structure
 data = load(source_file);

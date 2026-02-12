@@ -22,7 +22,8 @@ Outputs:
     %% Resample to RF
     % Creating oversampled time vector
     freq_oversampling = 7 * max(freq_carrier_1, freq_carrier_2);
-    duration = time_baseband(end) - time_baseband(1)
+    duration = time_baseband(end) - time_baseband(1);
+    fprintf('Signal duration = %.8e s\n', duration);
     time_oversampled = (0: freq_oversampling*duration).' / freq_oversampling;
 
     % Computing interpolation
