@@ -1,0 +1,10 @@
+# Cadence related files
+*.csv
+*.pwl
+*.out
+
+# MATLAB related files
+*.asv
+*.mat
+*.html
+*.png
