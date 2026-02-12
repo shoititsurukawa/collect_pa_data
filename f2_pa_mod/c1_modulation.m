@@ -17,7 +17,7 @@ tic
 %% Parameters
 freq_carrier_1 = 2.0e9;
 freq_carrier_2 = 4.0e9;
-gain = 0.02;
+P_dB = -34;
 do_plot = true;
 
 %% Importing functions
@@ -38,17 +38,29 @@ s1_baseband = data.s1_baseband;
 s2_baseband = data.s2_baseband;
 
 %% Normalization
-s1_baseband = s1_baseband / max(abs(s1_baseband));
-s2_baseband = s2_baseband / max(abs(s2_baseband));
+P1 = mean(abs(s1_baseband).^2);
+P2 = mean(abs(s2_baseband).^2);
+
+s1_baseband = s1_baseband / sqrt(P1);
+s2_baseband = s2_baseband / sqrt(P2);
 
 %% Modulation
 [freq_oversampling, time_oversampled, transmitted_signal] = modulate_makima(freq_carrier_1, freq_carrier_2, time_baseband, s1_baseband, s2_baseband, do_plot);
 
-%% Gain
+%% Normalization
+% Normalize to unit average power
+transmitted_signal = transmitted_signal / sqrt(mean(abs(transmitted_signal).^2));
+
+% Apply desired relative power level (dB)
+transmitted_signal = transmitted_signal * 10^(P_dB/20);
+
+% Check power
+P_check_dB = 10*log10(mean(abs(transmitted_signal).^2));
+fprintf('PA input power = %.2f dB\n', P_check_dB);
+
+% Check peak value
 max_val = max(abs(transmitted_signal));
-transmitted_signal = transmitted_signal / max_val;
-transmitted_signal = transmitted_signal * gain;
-check_max_value = max(abs(transmitted_signal))
+fprintf('Peak magnitude = %.2e\n', max_val);
 
 %% Save in .pwl file
 % Get folder of current script
