@@ -15,9 +15,9 @@ clear; clc; close all;
 tic
 
 %% Parameters
-freq_carrier_1 = 2.0e9;
+freq_carrier_1 = 1.8e9;
 bandwidth_1 = 8*20e6;
-freq_carrier_2 = 4.0e9;
+freq_carrier_2 = 5.4e9;
 bandwidth_2 = 8*20e6;
 
 %% Functions

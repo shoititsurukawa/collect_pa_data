@@ -15,8 +15,8 @@ clear; clc; close all;
 tic
 
 %% Parameters
-freq_carrier_1 = 2.0e9;
-freq_carrier_2 = 4.0e9;
+freq_carrier_1 = 1.8e9;
+freq_carrier_2 = 5.4e9;
 P_dB = -34;
 do_plot = true;
 
