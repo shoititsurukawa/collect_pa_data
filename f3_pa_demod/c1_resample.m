@@ -37,8 +37,8 @@ t_max = time_orig(end);
 time_uniform = (t_min:ts_target:t_max).';
 
 %% Resample both signals using interpolation
-signal_in_resampled  = interp1(time_orig, signal_in,  time_uniform, 'linear', 'extrap');
-signal_out_resampled = interp1(time_orig, signal_out, time_uniform, 'linear', 'extrap');
+signal_in_resampled  = interp1(time_orig, signal_in,  time_uniform, 'makima', 'extrap');
+signal_out_resampled = interp1(time_orig, signal_out, time_uniform, 'makima', 'extrap');
 
 %% Save results
 script_folder = fileparts(mfilename('fullpath'));

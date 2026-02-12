@@ -42,7 +42,7 @@ s1_baseband = s1_baseband / max(abs(s1_baseband));
 s2_baseband = s2_baseband / max(abs(s2_baseband));
 
 %% Modulation
-[freq_oversampling, time_oversampled, transmitted_signal] = modulate(freq_carrier_1, freq_carrier_2, time_baseband, s1_baseband, s2_baseband, do_plot);
+[freq_oversampling, time_oversampled, transmitted_signal] = modulate_makima(freq_carrier_1, freq_carrier_2, time_baseband, s1_baseband, s2_baseband, do_plot);
 
 %% Gain
 max_val = max(abs(transmitted_signal));
