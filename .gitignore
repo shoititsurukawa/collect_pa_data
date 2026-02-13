@@ -1,7 +1,7 @@
 # Cadence related files
-*.csv
 *.pwl
 *.out
+*.csv
 
 # MATLAB related files
 *.asv

@@ -15,8 +15,8 @@ clear; clc; close all;
 tic
 
 %% Parameters
-fs_target = 37.8e9;            % Target sampling frequency [Hz]
-ts_target = 1 / fs_target;   % Target sampling period [s]
+fs_target = 37.8e9;         % Target sampling frequency [Hz]
+ts_target = 1 / fs_target;	% Target sampling period [s]
 
 %% Read input and output files
 input_data = readmatrix('input_pa.csv');
