@@ -19,15 +19,18 @@ Output:
 clear; clc; close all;
 tic
 
-%% Parameters
-freq_baseband = 123e6; 
-num_of_points = 5000;
-
 %% Functions
 current_folder = fileparts(mfilename('fullpath'));
 root_folder = fileparts(current_folder);
 functions_folder = fullfile(root_folder, 'f0_functions');
 addpath(functions_folder);
+
+%% Parameters
+cfg = simulation_config();
+freq_baseband = cfg.freq_baseband;
+
+% Local
+num_of_points = 5000;
 
 %% Importing data
 [s1_time, s1_amp] = read_complex_csv('lte_real.csv', 'lte_imag.csv');

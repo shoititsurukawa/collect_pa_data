@@ -14,17 +14,20 @@ Output:
 clear; clc; close all;
 tic
 
-%% Parameters
-freq_carrier_1 = 1.8e9;
-freq_carrier_2 = 5.4e9;
-P_dB = -34;
-do_plot = true;
-
 %% Importing functions
 current_folder = fileparts(mfilename('fullpath'));
 root_folder = fileparts(current_folder);
 functions_folder = fullfile(root_folder, 'f0_functions');
 addpath(functions_folder);
+
+%% Parameters
+cfg = simulation_config();
+freq_carrier_1 = cfg.freq_carrier_1;
+freq_carrier_2 = cfg.freq_carrier_2;
+
+% Local
+P_dB = -34;
+do_plot = true;
 
 %% Importing data
 % Path

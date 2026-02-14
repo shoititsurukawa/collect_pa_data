@@ -14,9 +14,18 @@ Output:
 clear; clc; close all;
 tic
 
+%% Functions
+current_folder = fileparts(mfilename('fullpath'));
+root_folder = fileparts(current_folder);
+functions_folder = fullfile(root_folder, 'f0_functions');
+addpath(functions_folder);
+
 %% Parameters
-fs_target = 37.8e9;         % Target sampling frequency [Hz]
-ts_target = 1 / fs_target;	% Target sampling period [s]
+cfg = simulation_config();
+freq_passband = cfg.freq_passband;
+
+% Local
+ts_passband = 1 / freq_passband;
 
 %% Read input and output files
 input_data = readmatrix('input_pa.csv');
@@ -34,7 +43,7 @@ freq_sampling_out = length(signal_out)/time_orig(end)
 %% Create new uniform time base
 t_min = time_orig(1);
 t_max = time_orig(end);
-time_uniform = (t_min:ts_target:t_max).';
+time_uniform = (t_min:ts_passband:t_max).';
 
 %% Resample both signals using interpolation
 signal_in_resampled  = interp1_makima_warn(time_orig, signal_in,  time_uniform);

@@ -14,17 +14,20 @@ Output:
 clear; clc; close all;
 tic
 
-%% Parameters
-freq_carrier_1 = 1.8e9;
-bandwidth_1 = 8*20e6;
-freq_carrier_2 = 5.4e9;
-bandwidth_2 = 8*20e6;
-
 %% Functions
 current_folder = fileparts(mfilename('fullpath'));
 root_folder = fileparts(current_folder);
 functions_folder = fullfile(root_folder, 'f0_functions');
 addpath(functions_folder);
+
+%% Parameters
+cfg = simulation_config();
+freq_carrier_1 = cfg.freq_carrier_1;
+freq_carrier_2 = cfg.freq_carrier_2;
+
+% Local
+bandwidth_1 = 8*20e6;
+bandwidth_2 = 8*20e6;
 
 %% Load PA data
 % Path
