@@ -56,8 +56,8 @@ plot_spectrum(s2_amp, freq_sampling_2, 'Signal 2')
 time_baseband_complete = (0: freq_baseband*resample_duration).' / freq_baseband;
 
 % Computing interpolation
-s1_baseband_complete = interp1(s1_time, s1_amp, time_baseband_complete, 'makima', 'extrap');
-s2_baseband_complete = interp1(s2_time, s2_amp, time_baseband_complete, 'makima', 'extrap');
+s1_baseband_complete = interp1_makima_warn(s1_time, s1_amp, time_baseband_complete);
+s2_baseband_complete = interp1_makima_warn(s2_time, s2_amp, time_baseband_complete);
 
 %% Plot
 plot_spectrum(s1_baseband_complete, freq_baseband, 'Signal 1')

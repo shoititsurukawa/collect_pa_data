@@ -63,7 +63,7 @@ Outputs:
     time_baseband = (0: freq_baseband*duration+1).' / freq_baseband;
 
     % Computing interpolation
-    signal_demod_1 = interp1(time_uniform, signal_demod_1, time_baseband, 'makima', 'extrap');
-    signal_demod_2 = interp1(time_uniform, signal_demod_2, time_baseband, 'makima', 'extrap');
+    signal_demod_1 = interp1_makima_warn(time_uniform, signal_demod_1, time_baseband);
+    signal_demod_2 = interp1_makima_warn(time_uniform, signal_demod_2, time_baseband);
 
 end

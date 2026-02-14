@@ -27,8 +27,8 @@ Outputs:
     time_oversampled = (0: freq_oversampling*duration).' / freq_oversampling;
 
     % Computing interpolation
-    s1_oversampled = interp1(time_baseband, s1_baseband, time_oversampled, 'makima', 'extrap');
-    s2_oversampled = interp1(time_baseband, s2_baseband, time_oversampled, 'makima', 'extrap');
+    s1_oversampled = interp1_makima_warn(time_baseband, s1_baseband, time_oversampled);
+    s2_oversampled = interp1_makima_warn(time_baseband, s2_baseband, time_oversampled);
 
     %% Shift
     % Computing carrier
