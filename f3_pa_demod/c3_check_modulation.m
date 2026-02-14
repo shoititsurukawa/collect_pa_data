@@ -39,8 +39,8 @@ load('pa_data.mat');
     fullfile(source_folder, 'wlan11n_imag.csv'));
 
 %% Resample
-s1_baseband = interp1(s1_time, s1_signal, time_baseband, 'linear', 'extrap');
-s2_baseband = interp1(s2_time, s2_signal, time_baseband, 'linear', 'extrap');
+s1_baseband = interp1_makima_warn(s1_time, s1_signal, time_baseband);
+s2_baseband = interp1_makima_warn(s2_time, s2_signal, time_baseband);
 
 % Adjust amplitudes so that both baseband signals (before modulation) match
 % the maximum values of the recovered signals (after demodulation).
