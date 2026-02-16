@@ -9,5 +9,6 @@
 *.html
 *.png
 
-# Report
+# Report related files
 *.odt
+*.pdf
