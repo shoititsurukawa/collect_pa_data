@@ -1,4 +1,4 @@
-%% c2_check_split.m
+%% c2_check_source_split.m
 %{
 Description:
   Reads .mat files and plots them to check if they were correctly split.

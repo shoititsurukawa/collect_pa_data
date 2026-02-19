@@ -1,4 +1,4 @@
-%% c1_split_data.m
+%% c1_split_source_data.m
 %{
 Description:
   Reads source data collected in Cadende, resamples them at a constant
