@@ -39,8 +39,8 @@ load('pa_data.mat');
     fullfile(source_folder, 'wlan11n_imag.csv'));
 
 %% Resample
-s1_baseband = interp1_makima_warn(s1_time, s1_signal, time_baseband);
-s2_baseband = interp1_makima_warn(s2_time, s2_signal, time_baseband);
+s1_baseband = interp1_warn(s1_time, s1_signal, time_baseband);
+s2_baseband = interp1_warn(s2_time, s2_signal, time_baseband);
 
 % Adjust amplitudes so that both baseband signals (before modulation) match
 % the maximum values of the recovered signals (after demodulation).
@@ -106,4 +106,30 @@ grid on;
 % Paper-style formatting
 set([ax1, ax2],'FontSize',12,'LineWidth',1);
 
+%% NMSE computation
+
+nmse_s1_dB = compute_nmse(s1_baseband, signal_1_in);
+nmse_s2_dB = compute_nmse(s2_baseband, signal_2_in);
+
+fprintf('NMSE Signal 1 (Recovered vs Original): %.2f dB\n', nmse_s1_dB);
+fprintf('NMSE Signal 2 (Recovered vs Original): %.2f dB\n', nmse_s2_dB);
+
 toc
+
+%%
+function nmse_dB = compute_nmse(x_ref, x_est)
+    % Ensure column vectors
+    x_ref = x_ref(:);
+    x_est = x_est(:);
+
+    % Truncate to common length if needed
+    N = min(length(x_ref), length(x_est));
+    x_ref = x_ref(1:N);
+    x_est = x_est(1:N);
+
+    error_signal = x_ref - x_est;
+
+    nmse = mean(abs(error_signal).^2) / mean(abs(x_ref).^2);
+    nmse_dB = 10*log10(nmse);
+end
+

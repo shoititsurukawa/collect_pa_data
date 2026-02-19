@@ -1,4 +1,4 @@
-function xn = interp1_makima_warn(t, x, tn)
+function xn = interp1_warn(t, x, tn)
     
     t_min = min(t);
     t_max = max(t);
@@ -9,9 +9,9 @@ function xn = interp1_makima_warn(t, x, tn)
     tol = 1e-5 * duration;
     
     if (tn_min < (t_min - tol)) or (tn_max > (t_max + tol))
-        warning('makima extrapolation detected');
+        warning('extrapolation detected');
     end
     
-    xn = interp1(t, x, tn, 'makima', 'extrap');
+    xn = interp1(t, x, tn, 'linear', 'extrap');
 end
 

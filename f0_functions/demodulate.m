@@ -1,4 +1,4 @@
-function [signal_demod_1, signal_demod_2, time_baseband] = demodulate_makima(signal_in, time_uniform, freq_carrier_1, freq_carrier_2, bw_filter_1, bw_filter_2, do_plot)
+function [signal_demod_1, signal_demod_2, time_baseband] = demodulate(signal_in, time_uniform, freq_carrier_1, freq_carrier_2, bw_filter_1, bw_filter_2, do_plot)
 %{
 Description:
   Demodulates a dual-band signal from passband to baseband using FFT-based
@@ -63,7 +63,7 @@ Outputs:
     time_baseband = (0: freq_baseband*duration+1).' / freq_baseband;
 
     % Computing interpolation
-    signal_demod_1 = interp1_makima_warn(time_uniform, signal_demod_1, time_baseband);
-    signal_demod_2 = interp1_makima_warn(time_uniform, signal_demod_2, time_baseband);
+    signal_demod_1 = interp1_warn(time_uniform, signal_demod_1, time_baseband);
+    signal_demod_2 = interp1_warn(time_uniform, signal_demod_2, time_baseband);
 
 end

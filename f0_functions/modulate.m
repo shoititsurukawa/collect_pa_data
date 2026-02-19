@@ -1,4 +1,4 @@
-function [freq_oversampling, time_oversampled, transmitted_signal] = modulate_makima(freq_carrier_1, freq_carrier_2, time_baseband, s1_baseband, s2_baseband, do_plot)
+function [freq_oversampling, time_oversampled, transmitted_signal] = modulate(freq_carrier_1, freq_carrier_2, time_baseband, s1_baseband, s2_baseband, do_plot)
 %{
 Description:
   Modulates a dual-band signal from baseband to passband using resampling
@@ -27,8 +27,8 @@ Outputs:
     time_oversampled = (0: freq_oversampling*duration).' / freq_oversampling;
 
     % Computing interpolation
-    s1_oversampled = interp1_makima_warn(time_baseband, s1_baseband, time_oversampled);
-    s2_oversampled = interp1_makima_warn(time_baseband, s2_baseband, time_oversampled);
+    s1_oversampled = interp1_warn(time_baseband, s1_baseband, time_oversampled);
+    s2_oversampled = interp1_warn(time_baseband, s2_baseband, time_oversampled);
 
     %% Shift
     % Computing carrier

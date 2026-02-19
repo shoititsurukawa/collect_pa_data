@@ -23,7 +23,7 @@ addpath(functions_folder);
 %% Parameters
 cfg = simulation_config();
 freq_carrier_1 = cfg.freq_carrier_1;
-freq_carrier_2 = cfg.freq_carrier_2;
+freq_carrier_2 = cfg.freq_carrier_2
 
 % Local
 P_dB = -34;
@@ -49,7 +49,7 @@ s1_baseband = s1_baseband / sqrt(P1);
 s2_baseband = s2_baseband / sqrt(P2);
 
 %% Modulation
-[freq_oversampling, time_oversampled, transmitted_signal] = modulate_makima(freq_carrier_1, freq_carrier_2, time_baseband, s1_baseband, s2_baseband, do_plot);
+[freq_oversampling, time_oversampled, transmitted_signal] = modulate(freq_carrier_1, freq_carrier_2, time_baseband, s1_baseband, s2_baseband, do_plot);
 
 %% Normalization
 % Normalize to unit average power

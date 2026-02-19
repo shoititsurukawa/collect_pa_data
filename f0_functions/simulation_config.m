@@ -5,7 +5,7 @@ function cfg = simulation_config()
     
     % f2_pa_mod > c1_modulation
     cfg.freq_carrier_1 = 1.800e9;
-    cfg.freq_carrier_2 = 5.400e9;
+    cfg.freq_carrier_2 = 5.390e9;
     
     % f3_pa_demod > c1_resample
     cfg.freq_passband = 37.8e9;
