@@ -115,21 +115,3 @@ fprintf('NMSE Signal 1 (Recovered vs Original): %.2f dB\n', nmse_s1_dB);
 fprintf('NMSE Signal 2 (Recovered vs Original): %.2f dB\n', nmse_s2_dB);
 
 toc
-
-%%
-function nmse_dB = compute_nmse(x_ref, x_est)
-    % Ensure column vectors
-    x_ref = x_ref(:);
-    x_est = x_est(:);
-
-    % Truncate to common length if needed
-    N = min(length(x_ref), length(x_est));
-    x_ref = x_ref(1:N);
-    x_est = x_est(1:N);
-
-    error_signal = x_ref - x_est;
-
-    nmse = mean(abs(error_signal).^2) / mean(abs(x_ref).^2);
-    nmse_dB = 10*log10(nmse);
-end
-
