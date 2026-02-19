@@ -26,8 +26,8 @@ freq_carrier_1 = cfg.freq_carrier_1;
 freq_carrier_2 = cfg.freq_carrier_2
 
 % Local
-bandwidth_1 = 8*20e6;
-bandwidth_2 = 8*20e6;
+bandwidth_1 = 4*20e6;
+bandwidth_2 = 4*20e6;
 
 %% Load PA data
 % Path

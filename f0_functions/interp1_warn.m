@@ -12,6 +12,6 @@ function xn = interp1_warn(t, x, tn)
         warning('extrapolation detected');
     end
     
-    xn = interp1(t, x, tn, 'linear', 'extrap');
+    xn = interp1(t, x, tn, 'makima', 'extrap');
 end
 
