@@ -14,12 +14,8 @@ Email: eduardo.lima@ufpr.br
 All simulations were executed using the same PA described in [1].
 
 ## Google Drive
-
-| Experiment | f1       | f2         | Elapsed Time (Wall Clock) | Storage |
-|------------|----------|------------|---------------------------|---------|
-| 1          | 1.8 GHz  | 5.400 GHz  | 15.9 ks (4h 24m 49s)      | 19 GB   |
-| 2          | 1.8 GHz  | 5.410 GHz  | 16 ks (4h 26m 48s)        | 19 GB   |
-| 3          | 1.8 GHz  | 5.390 GHz  | 16 ks (4h 27m 20s)        | 19 GB   |
+Due to size constraints, datasets (e.g., `.csv`, `.mat`) are hosted on Google Drive.  
+https://drive.google.com/drive/folders/1rvblriCMdNoNtX-qFU0c8BRU9g89nh2Z?usp=drive_link
 
 ## Software and Environment
 MATLAB Version: 9.6.0.1072779 (R2019a)  
