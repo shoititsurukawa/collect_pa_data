@@ -1,4 +1,16 @@
 function nmse_dB = compute_nmse(x_ref, x_est)
+%{
+Description:
+  Compute normalized mean square error (NMSE) in dB between a reference
+  signal and an estimated signal.
+
+Inputs:
+  x_ref - Reference signal
+  x_est - Estimated signal
+
+Output:
+  nmse_dB = NMSE value in dB
+%}
     % Ensure column vectors
     x_ref = x_ref(:);
     x_est = x_est(:);

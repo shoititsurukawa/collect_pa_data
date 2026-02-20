@@ -18,7 +18,6 @@ Outputs:
   time_oversampled    - Oversampled time vector (s)
   transmitted_signal  - Real-valued passband signal combining both signals
 %}
-
     %% Resample to RF
     % Creating oversampled time vector
     freq_oversampling = 7 * max(freq_carrier_1, freq_carrier_2);

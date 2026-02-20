@@ -11,7 +11,6 @@ Outputs:
   time   - Time vector (from the first column of the real CSV)
   signal - Complex signal (real + 1j*imag)
 %}
-
     % Read real and imaginary CSV files
     real_data = readmatrix(real_file);
     imag_data = readmatrix(imag_file);

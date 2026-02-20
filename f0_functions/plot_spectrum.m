@@ -8,7 +8,6 @@ Inputs:
   fs        - Sampling frequency in Hz
   fig_name	- String to set as figure name (optional)
 %}
-
     if nargin < 3
         fig_name = 'Frequency Spectrum';
     end

@@ -18,7 +18,6 @@ Outputs:
   signal_demod_2  - Demodulated baseband signal for carrier 2
   time_baseband   - Time in baseband
 %}
-
     %% Parameters
     N = length(time_uniform);
     duration = time_uniform(end);
@@ -65,5 +64,4 @@ Outputs:
     % Computing interpolation
     signal_demod_1 = interp1_warn(time_uniform, signal_demod_1, time_baseband);
     signal_demod_2 = interp1_warn(time_uniform, signal_demod_2, time_baseband);
-
 end

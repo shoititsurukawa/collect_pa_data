@@ -7,7 +7,6 @@ Inputs:
   signal_in  - complex input signal to the PA
   signal_out - complex output signal from the PA
 %}
-
     % Prepare data
     abs_in = abs(signal_in);
     angle_in = angle(signal_in);

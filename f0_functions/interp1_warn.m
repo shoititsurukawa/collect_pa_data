@@ -1,5 +1,17 @@
 function xn = interp1_warn(t, x, tn)
-    
+%{
+Description:
+  Perform 1-D interpolation using MAKIMA and issue a warning if
+  extrapolation is detected.
+
+Inputs:
+  t     - Original time vector
+  x     - Original signal vector
+  tn    - New time vector for interpolation
+
+Output:
+  xn    - New signal vector interpolated (or extrapolated) at tn
+%}
     t_min = min(t);
     t_max = max(t);
     tn_min = min(tn);
@@ -14,4 +26,3 @@ function xn = interp1_warn(t, x, tn)
     
     xn = interp1(t, x, tn, 'makima', 'extrap');
 end
-
