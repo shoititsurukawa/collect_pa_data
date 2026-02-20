@@ -1,11 +1,11 @@
-function [signal_demod_1, signal_demod_2, time_baseband] = demodulate(signal_in, time_uniform, freq_carrier_1, freq_carrier_2, bw_filter_1, bw_filter_2, do_plot)
+function [signal_demod_1, signal_demod_2, time_baseband] = demodulate(wideband_signal, time_uniform, freq_carrier_1, freq_carrier_2, bw_filter_1, bw_filter_2, do_plot)
 %{
 Description:
   Demodulates a dual-band signal from passband to baseband using FFT-based
   filtering, inverse FFT and frequency downconversion.
 
 Inputs:
-  signal_in       - Input PA signal (time domain)
+  wideband_signal - Composite wideband passband signal at the PA input or output
   time_uniform    - Time vector (uniform sampling)
   freq_carrier_1  - Carrier frequency of first signal (Hz)
   freq_carrier_2  - Carrier frequency of second signal (Hz)
@@ -24,7 +24,7 @@ Outputs:
     fs = N / duration;
 
     %% FFT
-    S_tx = fft(signal_in);
+    S_tx = fft(wideband_signal);
     f_axis = linspace(-fs/2, fs/2, N);
     S_tx_shifted = fftshift(S_tx);
 
@@ -42,7 +42,7 @@ Outputs:
         plot(f_axis/1e9, 20*log10(abs(S_filtered_1)), 'r','LineWidth',1.2);
         plot(f_axis/1e9, 20*log10(abs(S_filtered_2)), 'g','LineWidth',1.2);
         xlabel('Frequency (GHz)'); ylabel('Magnitude (dB)');
-        legend('Input signal','Filtered 1','Filtered 2'); grid on;
+        legend('Wideband signal','Filtered 1','Filtered 2'); grid on;
     end
 
     %% IFFT to time domain
