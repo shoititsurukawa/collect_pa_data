@@ -24,6 +24,7 @@ addpath(functions_folder);
 cfg = simulation_config();
 freq_carrier_1 = cfg.freq_carrier_1;
 freq_carrier_2 = cfg.freq_carrier_2
+freq_baseband = cfg.freq_baseband;
 
 % Local
 bandwidth_1 = 4*20e6;
@@ -46,11 +47,11 @@ fs = N / time_uniform(end);
 
 %% Call demodulation function for PA output
 [signal_1_out, signal_2_out, ~] = demodulate(signal_out_resampled, ...
-    time_uniform, freq_carrier_1, freq_carrier_2, bandwidth_1, bandwidth_2, true);
+    time_uniform, freq_carrier_1, freq_carrier_2, bandwidth_1, bandwidth_2, freq_baseband, true);
 
 %% Call demodulation function for PA input
 [signal_1_in, signal_2_in, time_baseband] = demodulate(signal_in_resampled, ...
-    time_uniform, freq_carrier_1, freq_carrier_2, bandwidth_1, bandwidth_2, true);
+    time_uniform, freq_carrier_1, freq_carrier_2, bandwidth_1, bandwidth_2, freq_baseband, true);
 
 %% Print
 max_s1_in = max(abs(signal_1_in))

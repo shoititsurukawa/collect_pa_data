@@ -1,17 +1,18 @@
-function [signal_demod_1, signal_demod_2, time_baseband] = demodulate(wideband_signal, time_uniform, freq_carrier_1, freq_carrier_2, bw_filter_1, bw_filter_2, do_plot)
+function [signal_demod_1, signal_demod_2, time_baseband] = demodulate(wideband_signal, time_uniform, freq_carrier_1, freq_carrier_2, bw_filter_1, bw_filter_2, freq_baseband, do_plot)
 %{
 Description:
   Demodulates a dual-band signal from passband to baseband using FFT-based
   filtering, inverse FFT and frequency downconversion.
 
 Inputs:
-  wideband_signal - Composite wideband passband signal at the PA input or output
-  time_uniform    - Time vector (uniform sampling)
-  freq_carrier_1  - Carrier frequency of first signal (Hz)
-  freq_carrier_2  - Carrier frequency of second signal (Hz)
-  bw_filter_1     - Bandwidth for first signal (Hz)
-  bw_filter_2     - Bandwidth for second signal (Hz)
-  do_plot         - Boolean (true/false), whether to plot or not
+  wideband_signal   - Composite wideband passband signal at the PA input or output
+  time_uniform      - Time vector (uniform sampling)
+  freq_carrier_1    - Carrier frequency of first signal (Hz)
+  freq_carrier_2    - Carrier frequency of second signal (Hz)
+  bw_filter_1       - Bandwidth for first signal (Hz)
+  bw_filter_2       - Bandwidth for second signal (Hz)
+  freq_baseband     - Baseband reference frequency after demodulation (Hz)
+  do_plot           - Boolean (true/false), whether to plot or not
 
 Outputs:
   signal_demod_1  - Demodulated baseband signal for carrier 1
@@ -58,7 +59,6 @@ Outputs:
 
     %% Resample
     % Creating baseband time vector
-    freq_baseband = 123e6;
     time_baseband = (0: freq_baseband*duration+1).' / freq_baseband;
 
     % Computing interpolation
