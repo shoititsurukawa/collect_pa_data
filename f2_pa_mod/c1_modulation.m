@@ -24,6 +24,7 @@ addpath(functions_folder);
 cfg = simulation_config();
 freq_carrier_1 = cfg.freq_carrier_1;
 freq_carrier_2 = cfg.freq_carrier_2
+freq_passband = cfg.freq_passband;
 
 % Local
 P_dB = -34;
@@ -49,7 +50,7 @@ s1_baseband = s1_baseband / sqrt(P1);
 s2_baseband = s2_baseband / sqrt(P2);
 
 %% Modulation
-[freq_oversampling, time_oversampled, transmitted_signal] = modulate(freq_carrier_1, freq_carrier_2, time_baseband, s1_baseband, s2_baseband, do_plot);
+[time_passband, transmitted_signal] = modulate(freq_carrier_1, freq_carrier_2, time_baseband, s1_baseband, s2_baseband, freq_passband, do_plot);
 
 %% Normalization
 % Normalize to unit average power
@@ -72,7 +73,7 @@ script_folder = fileparts(mfilename('fullpath'));
 pwl_filename = fullfile(script_folder, 'transmitted_signal.pwl');
 
 % Combine time and signal into two columns
-data_to_save = [time_oversampled, transmitted_signal];
+data_to_save = [time_passband, transmitted_signal];
 
 % Open file
 fid = fopen(pwl_filename, 'w');

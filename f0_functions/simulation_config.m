@@ -12,4 +12,5 @@ Description:
     
     % f3_pa_demod > c1_resample
     cfg.freq_passband = 37.8e9;
+    %cfg.freq_passband = 7 * max(cfg.freq_carrier_1, cfg.freq_carrier_2);
 end
